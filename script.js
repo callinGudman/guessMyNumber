@@ -15,6 +15,7 @@ let secretNumber = Math.trunc(Math.random()*20) + 1;
 let score = 20;
 let highscore = 0;
 let btnCheck = document.querySelector('.check');
+let btnAgain = document.querySelector('.again');
 
 const  displayMessage = function(message){
  document.querySelector('.message').textContent = message;
@@ -57,7 +58,7 @@ const check = function(){
   }
 };
 
-document.querySelector('.again').addEventListener('click',function(){
+const again = function again(){
  score = 20;
  secretNumber = Math.trunc(Math.random()*20) + 1;
 
@@ -68,12 +69,23 @@ document.querySelector('.again').addEventListener('click',function(){
 
  document.querySelector('.number').style.width = '15rem';
  document.querySelector('body').style.backgroundColor = '#222';
-});
-btnCheck.addEventListener('click',check)
+};
+
+btnCheck.addEventListener('click',check);
+btnAgain.addEventListener('click',again);
+
+
+
 document.addEventListener('keydown', function(e){
  if(e.key==='Enter') {
   check();
  }});
+
+document.addEventListener('keydown', function(e){
+ if(e.key === 'Escape'){
+  again()
+ }
+})
 
 
 
