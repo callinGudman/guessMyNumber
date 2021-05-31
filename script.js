@@ -14,14 +14,14 @@ console.log(document.querySelector('.guess').value);
 let secretNumber = Math.trunc(Math.random()*20) + 1;
 let score = 20;
 let highscore = 0;
+let btnCheck = document.querySelector('.check');
 
 const  displayMessage = function(message){
  document.querySelector('.message').textContent = message;
 }
 
+const check = function(){
 
-document.querySelector('.check').addEventListener
-('click', function(){
  const guess = Number(document.querySelector('.guess').value);
 
  // When there is no input
@@ -55,7 +55,7 @@ document.querySelector('.check').addEventListener
     document.querySelector('body').style.backgroundColor = 'darkred';
    }
   }
-});
+};
 
 document.querySelector('.again').addEventListener('click',function(){
  score = 20;
@@ -69,6 +69,12 @@ document.querySelector('.again').addEventListener('click',function(){
  document.querySelector('.number').style.width = '15rem';
  document.querySelector('body').style.backgroundColor = '#222';
 });
+btnCheck.addEventListener('click',check)
+document.addEventListener('keydown', function(e){
+ if(e.key==='Enter') {
+  check();
+ }});
+
 
 
 
